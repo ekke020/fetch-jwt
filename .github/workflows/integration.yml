@@ -7,10 +7,13 @@ jobs:
       - uses: actions/checkout@master
       - name: Self test
         id: selftest
-
-        # Put your action repo here
-        uses: jacobtomlinson/python-container-action@master
-
-      - name: Check outputs
+        uses: ekke020/fetch-jwt@master
+        with: 
+          key: ${{ secrets.TEST_KEY }}
+          id: ${{ secrets.TEST_ID }}
+      - name: Validate token
         run: |
-          test "${{ steps.selftest.outputs.myOutput }}" == "Hello world"
+          if ! [[ "${{ steps.selftest.outputs.token }}" !=~ ^ey([a-zA-Z0-9_=]+).([a-zA-Z0-9_=]+).([a-zA-Z0-9_\-]*)$ ]]; then 
+            exit 1
+          fi
+          
