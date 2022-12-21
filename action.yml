@@ -1,13 +1,16 @@
-name: "Python Container Action Template"
-description: "Get started with Python Container actions"
-author: "Jacob Tomlinson"
+name: "PEM to JWT"
+description: "Generate a JWT token from a provided PEM key"
+author: "Johan Ekman"
+
 inputs:
-  myInput:
-    description: "Input to use"
-    default: "world"
+  key:
+    description: "The PEM key to use"
+  id:
+    description: "The ID of the App"
 outputs:
-  myOutput:
-    description: "Output from the action"
+  jwt:
+    description: "The JWT token created from the provided PEM key"
+    
 runs:
   using: "docker"
   image: "Dockerfile"
