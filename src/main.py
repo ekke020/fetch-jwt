@@ -17,8 +17,8 @@ def generate_token(key, app_id):
 
 
 if __name__ == '__main__':
-    key = os.environ["KEY"]
-    app_id = os.environ["ID"]
+    key = os.environ['key']
+    app_id = os.environ['id']
     decoded = base64.b64decode(key)
     token = generate_token(decoded, app_id)
     print(f'::set-output name=token::{token}')
