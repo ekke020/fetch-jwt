@@ -1,11 +1,8 @@
 FROM python:3-slim
 COPY action.py /app
+COPY requirements.txt /app
 WORKDIR /app
 
-RUN pip install --target=/app -r requirements.txt
+RUN pip install -r requirements.txt
 
-# FROM gcr.io/distroless/python3-debian10
-# COPY --from=builder /app /app
-# WORKDIR /app
-# ENV PYTHONPATH /app
-CMD ["python", "/app/action.py"]
+CMD ["python", "./action.py"]
