@@ -13,7 +13,7 @@ jobs:
           id: ${{ secrets.TEST_ID }}
       - name: Validate token
         run: |
-          if ! [[ "${{ steps.selftest.outputs.token }}" !=~ ^ey([a-zA-Z0-9_=]+).([a-zA-Z0-9_=]+).([a-zA-Z0-9_\-]*)$ ]]; then 
+          if ! [[ "${{ steps.selftest.outputs.token }}" =~ ^ey([a-zA-Z0-9_=]+).([a-zA-Z0-9_=]+).([a-zA-Z0-9_\-]*)$ ]]; then 
             exit 1
           fi
           
