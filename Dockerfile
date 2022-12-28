@@ -1,9 +1,9 @@
 FROM python:slim
 WORKDIR /app
 
-COPY action.py app/
-COPY requirements.txt app/
-COPY entrypoint.sh app/
+COPY action.py .
+COPY requirements.txt .
+COPY entrypoint.sh .
 RUN ls app
 RUN pip install -r requirements.txt
 ENV PYTHONPATH /app
