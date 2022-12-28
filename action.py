@@ -24,4 +24,4 @@ if __name__ == '__main__':
     app_id = os.getenv('INPUT_ID')
     decoded = base64.b64decode(key)
     token = generate_token(decoded, app_id)
-    # append_github_output(token)
+    append_github_output(token)
