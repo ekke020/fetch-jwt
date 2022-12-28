@@ -15,10 +15,13 @@ def generate_token(key, app_id):
 
     return token
 
+def append_github_output(token):
+    with open(os.environ['GITHUB_OUTPUT'], 'a') as fh:
+        print(f'token={token}', file=fh)
 
 if __name__ == '__main__':
     key = os.getenv('INPUT_KEY')
     app_id = os.getenv('INPUT_ID')
     decoded = base64.b64decode(key)
     token = generate_token(decoded, app_id)
-    print(f'::set-output name=token::{token}')
+    append_github_output(token)

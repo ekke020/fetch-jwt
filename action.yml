@@ -10,7 +10,7 @@ inputs:
 outputs:
   jwt:
     description: "The JWT token created from the provided PEM key"
-    
+
 runs:
   using: "docker"
   image: "Dockerfile"

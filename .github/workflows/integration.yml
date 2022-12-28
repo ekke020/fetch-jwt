@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Self test
+      - name: Generate token
         id: selftest
         uses: ekke020/fetch-jwt@master
         with: 
